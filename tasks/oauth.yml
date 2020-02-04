@@ -1,0 +1,26 @@
+---
+- name: Start oauth2-proxy container
+  docker_container:
+    name: '{{ kibana_cont_name }}-oauth'
+    image: '{{ oauth2_proxy_image }}'
+    pull: true
+    restart_policy: always
+    state: '{{ cont_state }}'
+    recreate: '{{ cont_recreate }}'
+    restart: '{{ cont_restart }}'
+    ports:
+      - '127.0.0.1:{{ kibana_oauth_port }}:{{ kibana_oauth_port }}'
+    links:
+      - '{{ kibana_cont_name }}:upstream'
+    command: |
+      --email-domain='*'
+      --provider='github'
+      --github-org='status-im'
+      --cookie-domain='{{ kibana_domain }}'
+      --cookie-secret='{{ lookup("passwordstore", "services/cookie-secret") }}'
+      --client-id='{{ lookup("passwordstore", "services/kibana/oauth-id") }}'
+      --client-secret='{{ lookup("passwordstore", "services/kibana/oauth-secret") }}'
+      --redirect-url='https://{{ kibana_domain }}/oauth2/callback'
+      --http-address='0.0.0.0:{{ kibana_oauth_port }}'
+      --upstream='http://upstream:{{ kibana_cont_port }}/'
+      --request-logging=false

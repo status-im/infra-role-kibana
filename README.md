@@ -1,6 +1,6 @@
 # Description
 
-This role configures [Kibana](https://www.elastic.co/guide/en/kibana/6.3/index.html) Dashboard which is part of the [ELK Stack](https://www.elastic.co/elk-stack) which facilitates aggregation, collection, and querying of vast amounts of logs from multiple hosts and services.
+This role configures [Kibana](https://www.elastic.co/guide/en/kibana/7.5/index.html) Dashboard which is part of the [ELK Stack](https://www.elastic.co/elk-stack) which facilitates aggregation, collection, and querying of vast amounts of logs from multiple hosts and services.
 
 # Usage
 

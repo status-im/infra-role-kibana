@@ -7,10 +7,6 @@ kibana_cont_port: 5601
 kibana_cont_uid: 1000
 kibana_host_uid: '{{ 100000 + kibana_cont_uid | int }}'
 
-# for oauth
-kibana_domain: 'kibana.status.im'
-kibana_oauth_port: 8090
-
 # generic container options
 cont_state: started
 cont_recreate: false

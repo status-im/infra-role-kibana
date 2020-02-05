@@ -13,5 +13,5 @@ As always the configuration is in `defaults/main.yml` and mostly informs the `te
 Most important setting is probably:
 
 ```yaml
-kibana_domain: 'kibana.status.im'
+kibana_version: '7.5.2'
 ```

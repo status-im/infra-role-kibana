@@ -1,5 +1,5 @@
 ---
-kibana_version: '7.5.2'
+kibana_version: '7.6.2'
 kibana_cont_image: 'docker.elastic.co/kibana/kibana-oss:{{ kibana_version }}'
 kibana_cont_name: kibana
 kibana_cont_vol: '/docker/{{ kibana_cont_name }}'

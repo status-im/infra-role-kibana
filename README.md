@@ -4,7 +4,7 @@ This role configures [Kibana](https://www.elastic.co/guide/en/kibana/7.5/index.h
 
 # Usage
 
-The dashboard is available at https://kibana.status.im/ and is hosted on a single host currently. It makes use of an ElasticSearch load balancer configured by the [`elasticsearch-lb`](../elasticsearch-lb/README.md) role which connects to the ES cluster and queries it for logs.
+The dashboard is available at https://kibana.infra.status.im/ and is hosted on a single host currently. It makes use of an ElasticSearch load balancer configured by the [`elasticsearch-lb`](../elasticsearch-lb/README.md) role which connects to the ES cluster and queries it for logs.
 
 # Configuration
 

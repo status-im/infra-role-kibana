@@ -13,5 +13,5 @@ As always the configuration is in `defaults/main.yml` and mostly informs the `te
 Most important setting is probably:
 
 ```yaml
-kibana_version: '7.5.2'
+kibana_cont_tag: '7.14.2'
 ```

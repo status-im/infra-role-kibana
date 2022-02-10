@@ -1,0 +1,19 @@
+---
+version: '3.7'
+networks:
+  default:
+    name: '{{ kibana_docker_network_name }}'
+
+services:
+  app:
+    container_name: '{{ kibana_cont_name }}'
+    image: '{{ kibana_cont_image }}'
+    restart: always
+    environment:
+      NODE_OPTIONS: '--max-old-space-size=3072'
+      SERVER_NAME: '{{ kibana_domain }}'
+    ports:
+      - '127.0.0.1:{{ kibana_cont_port }}:{{ kibana_cont_port }}'
+    volumes:
+      - '{{ kibana_cont_vol }}/config:/usr/share/kibana/config'
+      - '{{ kibana_cont_vol }}/plugins:/usr/share/kibana/plugins'

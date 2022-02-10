@@ -4,8 +4,11 @@ server.ssl.enabled: false
 server.name: "{{ hostname }}"
 server.host: "0"
 server.port: {{ kibana_cont_port }}
-elasticsearch.hosts: "http://{{ es_lb_cont_name }}:{{ es_lb_api_port }}"
+elasticsearch.hosts: "http://{{ kiban_es_lb_addr }}:{{ kiban_es_lb_port }}"
+# XPack
+xpack.security.enabled: false
+xpack.reporting.enabled: false
 # logging
-logging.quiet: true
+logging.quiet: false
 logging.silent: false
 logging.verbose: false

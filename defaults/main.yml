@@ -1,14 +1,26 @@
 ---
+kibana_service_name: 'kibana'
+kibana_service_path: '/docker/{{ kibana_service_name }}'
+kibana_compose_path: '{{ kibana_service_path }}/docker-compose.yml'
+
+# Config
 kibana_domain: 'kibana.example.org'
-kibana_version: '7.14.2'
-kibana_cont_image: 'kibana:{{ kibana_version }}'
-kibana_cont_name: kibana
-kibana_cont_vol: '/docker/{{ kibana_cont_name }}'
+
+# Container
+kibana_docker_network_name: '{{ kibana_service_name }}'
+kibana_cont_name: '{{ kibana_service_name }}'
+kibana_cont_tag: '7.14.2'
+kibana_cont_image: 'kibana:{{ kibana_cont_tag }}'
+kibana_cont_vol: '{{ kibana_service_path }}/app'
 kibana_cont_port: 5601
 kibana_cont_uid: 1000
 kibana_host_uid: '{{ 100000 + kibana_cont_uid | int }}'
 
-# generic container options
-cont_state: started
-cont_recreate: false
-cont_restart: false
+# ElasticSearch
+kiban_es_lb_port: 9200
+kiban_es_lb_addr: 'localhost'
+
+# general container management
+compose_state: 'present'
+compose_recreate: 'smart'
+compose_restart: false

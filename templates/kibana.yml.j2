@@ -2,7 +2,7 @@
 server.publicBaseUrl: "https://{{ kibana_domain }}"
 server.ssl.enabled: false
 server.name: "{{ hostname }}"
-server.host: "0"
+server.host: "0.0.0.0"
 server.port: {{ kibana_cont_port }}
 elasticsearch.hosts: "http://{{ kiban_es_lb_addr }}:{{ kiban_es_lb_port }}"
 # XPack

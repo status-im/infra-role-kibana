@@ -17,8 +17,8 @@ kibana_cont_uid: 1000
 kibana_host_uid: '{{ 100000 + kibana_cont_uid | int }}'
 
 # ElasticSearch
-kiban_es_lb_port: 9200
-kiban_es_lb_addr: 'localhost'
+kibana_es_lb_port: 9200
+kibana_es_lb_addr: 'localhost'
 
 # general container management
 compose_state: 'present'

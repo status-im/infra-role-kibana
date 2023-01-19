@@ -9,7 +9,7 @@ kibana_domain: 'kibana.example.org'
 # Container
 kibana_docker_network_name: '{{ kibana_service_name }}'
 kibana_cont_name: '{{ kibana_service_name }}'
-kibana_cont_tag: '7.17.4'
+kibana_cont_tag: '7.17.8'
 kibana_cont_image: 'kibana:{{ kibana_cont_tag }}'
 kibana_cont_vol: '{{ kibana_service_path }}/app'
 kibana_cont_port: 5601

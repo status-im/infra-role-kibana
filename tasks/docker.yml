@@ -8,10 +8,8 @@
     mode: 0644
 
 - name: 'Create containers'
-  docker_compose:
+  community.docker.docker_compose_v2:
     project_src: '{{ kibana_service_path }}'
-    state: '{{ compose_state }}'
-    restarted: '{{ compose_restart }}'
-    recreate: '{{ kibana_config.changed | ternary("always", compose_recreate) }}'
-    pull: true
-    build: false
+    pull:        '{{ compose_pull }}'
+    state:       '{{ compose_state }}'
+    recreate:    '{{ compose_recreate }}'

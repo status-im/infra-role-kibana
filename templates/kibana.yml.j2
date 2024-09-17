@@ -1,7 +1,7 @@
 ---
 server.publicBaseUrl: "https://{{ kibana_domain }}"
 server.ssl.enabled: false
-server.name: "{{ hostname }}"
+server.name: "{{ inventory_hostname }}"
 server.host: "0.0.0.0"
 server.port: {{ kibana_cont_port }}
 elasticsearch.hosts: "http://{{ kibana_es_lb_addr }}:{{ kibana_es_lb_port }}"

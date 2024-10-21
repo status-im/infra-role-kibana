@@ -5,6 +5,7 @@ kibana_compose_path: '{{ kibana_service_path }}/docker-compose.yml'
 
 # Config
 kibana_domain: 'kibana.example.org'
+kibana_log_level: 'info'
 
 # Container
 kibana_docker_network_name: '{{ kibana_service_name }}'

@@ -9,6 +9,5 @@ elasticsearch.hosts: ["http://{{ kibana_es_lb_addr }}:{{ kibana_es_lb_port }}"]
 xpack.security.enabled: false
 xpack.reporting.enabled: false
 # logging
-logging.quiet: false
-logging.silent: false
-logging.verbose: false
+logging.json: true
+logging.root.level: "{{ kibana_log_level }}"

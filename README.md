@@ -13,5 +13,6 @@ As always the configuration is in `defaults/main.yml` and mostly informs the `te
 Most important setting is probably:
 
 ```yaml
-kibana_cont_tag: '7.14.2'
+kibana_cont_tag: '7.17.8'
+kibana_log_level: 'debug'
 ```

@@ -1,11 +1,14 @@
 ---
+networks:
+  default:
+    name: '{{ kibana_docker_network_name }}'
+    external: true
+
 services:
   app:
     container_name: '{{ kibana_cont_name }}'
     image: '{{ kibana_cont_image }}'
     restart: always
-    extra_hosts:
-      upstream: 'host-gateway'
     environment:
       NODE_OPTIONS: '--max-old-space-size=3072'
       SERVER_NAME: '{{ kibana_domain }}'

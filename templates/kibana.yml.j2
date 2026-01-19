@@ -7,7 +7,9 @@ server.port: {{ kibana_cont_port }}
 elasticsearch.hosts: ["http://{{ kibana_es_lb_addr }}:{{ kibana_es_lb_port }}"]
 # XPack
 xpack.security.enabled: false
-xpack.reporting.enabled: false
+xpack.reporting.enabled: true
+xpack.reporting.roles.enabled: false
+xpack.reporting.csv.maxSizeBytes: 50mb
 # logging
 logging.json: true
 logging.root.level: "{{ kibana_log_level }}"

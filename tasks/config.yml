@@ -1,10 +1,11 @@
 ---
 - name: Create directory for config files
   file:
-    path: '{{ kibana_cont_vol }}/{{ item }}'
-    state: directory
-    owner: '{{ kibana_host_uid }}'
-    group: docker
+    path:    '{{ kibana_cont_vol }}/{{ item }}'
+    state:   'directory'
+    owner:   '{{ kibana_host_uid }}'
+    group:   'docker'
+    mode:    '0750'
     recurse: true
   with_items:
     - config
@@ -12,8 +13,9 @@
 
 - name: Create config files
   template:
-    src: kibana.yml.j2
-    dest: '{{ kibana_cont_vol }}/config/kibana.yml'
+    src:   'kibana.yml.j2'
+    dest:  '{{ kibana_cont_vol }}/config/kibana.yml'
     owner: '{{ kibana_host_uid }}'
-    group: docker
+    group: 'docker'
+    mode:  '0640'
   register: kibana_config

@@ -20,6 +20,8 @@ kibana_host_uid: '{{ 100000 + kibana_cont_uid | int }}'
 # ElasticSearch
 kibana_es_lb_port: 9200
 kibana_es_lb_addr: 'localhost'
+kibana_es_lb_user: 'kibana_system'
+#kibana_es_lb_pass: 'changeMeIfYouCare'
 
 # general container management
 compose_pull: 'missing'

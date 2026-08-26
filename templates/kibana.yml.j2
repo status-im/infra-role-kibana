@@ -1,20 +1,19 @@
 ---
+# Server
 server.publicBaseUrl: "https://{{ kibana_domain }}"
 server.ssl.enabled: false
 server.name: "{{ inventory_hostname }}"
 server.host: "0.0.0.0"
 server.port: {{ kibana_cont_port }}
+status.allowAnonymous: true
 
 # ElasticSearch
 elasticsearch.hosts: ["http://{{ kibana_es_lb_addr }}:{{ kibana_es_lb_port }}"]
 elasticsearch.username: "{{ kibana_es_lb_user | mandatory }}"
 elasticsearch.password: "{{ kibana_es_lb_pass | mandatory }}"
 
-# XPack
+# XPack - Security
 xpack.security.enabled: true
-xpack.reporting.enabled: true
-xpack.reporting.roles.enabled: false
-xpack.reporting.csv.maxSizeBytes: 50mb
 {% if kibana_guest_allow_anonymous_login %}
 xpack.security.authc.providers:
   anonymous.anonymous1:
@@ -24,6 +23,11 @@ xpack.security.authc.providers:
       password: "{{ kibana_guest_pass | mandatory }}"
 {% endif %}
 
-# logging
+# XPack - Reporting
+xpack.reporting.enabled: true
+xpack.reporting.roles.enabled: false
+xpack.reporting.csv.maxSizeBytes: 50mb
+
+# Logging
 logging.json: true
 logging.root.level: "{{ kibana_log_level }}"

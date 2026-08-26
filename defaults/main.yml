@@ -17,6 +17,11 @@ kibana_cont_port: 5601
 kibana_cont_uid: 1000
 kibana_host_uid: '{{ 100000 + kibana_cont_uid | int }}'
 
+# Authentication
+kibana_guest_allow_anonymous_login: false
+kibana_guest_user: 'kibana_guest'
+#kibana_guest_pass: 'changeMeIfYouCare'
+
 # ElasticSearch
 kibana_es_lb_port: 9200
 kibana_es_lb_addr: 'localhost'

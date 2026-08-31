@@ -11,5 +11,5 @@
   community.docker.docker_compose_v2:
     project_src: '{{ kibana_service_path }}'
     pull:        '{{ compose_pull }}'
-    recreate:    '{{ compose_recreate }}'
-    state:       '{{ kibana_config.changed | ternary("restarted", compose_state) }}'
+    state:       '{{ compose_state }}'
+    recreate:    '{{ "always" if kibana_config.changed else compose_recreate }}'
